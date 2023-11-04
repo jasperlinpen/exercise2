@@ -1,5 +1,5 @@
           const element1 = document.getElementById("myBar1");
-          let width = 0 , intervalIds = [] ; 
+          let width = 0; 
           window.addEventListener('load',function(){
           	if (firstVisit === true) {
           		// firstVisit = false;
@@ -21,7 +21,6 @@
              switch ( $(this).val()) {
                       case "0": 
                           width = 100;
-						  refSec = 99999 ;
                        	  element1.style.width = '0%'; 
                           break;
                       case "1": 
@@ -108,28 +107,18 @@
                          return;
                     } 
 
-          	 //  console.log(refSec);
+          	   console.log(refSec);
           	   if ( firstVisit === true ) {
           	   	   console.log(firstVisit);
-				   while(intervalIds.length){
-                          clearInterval(intervalIds.pop());
-                    }
-          	   	 //  id = setInterval(getDATA,refSec);
-				   if  (refSec != 99999 ) {
-				       id = setInterval(getDATA,refSec);
-				       intervalIds.push(id); 
-					 }
-				   /*
- 				   if (id > 1) {
+          	   	   id = setInterval(getDATA,refSec);
+				   if (id > 1) {
 					   clearInterval(id-1) ;
 					   width = 0; 
-				    }
-				    */	
-          	    }  
-				 else {
-          	     //  console.log(firstVisit);
+				   }
+          	   } else {
+          	   	   console.log(firstVisit);
           	   	 //  location.replace(url) ;
-          	      }
+          	   }
             }
                      
           function getDATA() {

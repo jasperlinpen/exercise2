@@ -20,8 +20,8 @@
           function myFunction() {
              switch ( $(this).val()) {
                       case "0": 
+					      refSec = 99999 ;
                           width = 100;
-						  refSec = 99999 ;
                        	  element1.style.width = '0%'; 
                           break;
                       case "1": 
@@ -110,26 +110,25 @@
 
           	 //  console.log(refSec);
           	   if ( firstVisit === true ) {
-          	   	   console.log(firstVisit);
-				   while(intervalIds.length){
+          	   	 //  console.log(firstVisit);
+          	   	     while(intervalIds.length){
                           clearInterval(intervalIds.pop());
-                    }
-          	   	 //  id = setInterval(getDATA,refSec);
-				   if  (refSec != 99999 ) {
-				       id = setInterval(getDATA,refSec);
-				       intervalIds.push(id); 
+                     }
+					 if (refSec != 99999 ) {
+				        id = setInterval(getDATA,refSec);
+				        intervalIds.push(id); 
 					 }
-				   /*
- 				   if (id > 1) {
+				   
+				/*   
+				   if (id > 1) {
 					   clearInterval(id-1) ;
 					   width = 0; 
-				    }
-				    */	
-          	    }  
-				 else {
-          	     //  console.log(firstVisit);
-          	   	 //  location.replace(url) ;
-          	      }
+				       }
+          	        } else {
+          	     	   //  console.log(firstVisit);
+          	   	       //  location.replace(url) ;
+          	        }
+			     */
             }
                      
           function getDATA() {
