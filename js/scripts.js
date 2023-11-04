@@ -110,7 +110,7 @@
 
           	 //  console.log(refSec);
           	   if ( firstVisit === true ) {
-          	   	   console.log(firstVisit);
+          	   	 //  console.log(firstVisit);
 				   while(intervalIds.length){
                           clearInterval(intervalIds.pop());
                     }
@@ -118,6 +118,13 @@
 				   if  (refSec != 99999 ) {
 				       id = setInterval(getDATA,refSec);
 				       intervalIds.push(id); 
+					 }
+					 else 
+					 {
+				        while(intervalIds.length){
+                          clearInterval(intervalIds.pop());
+                        }
+						
 					 }
 				   /*
  				   if (id > 1) {
