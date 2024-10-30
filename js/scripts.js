@@ -2,7 +2,7 @@
 		  const mask_item1 = document.getElementById("hiddenElement1");
 		  const mask_item2 = document.getElementById("hiddenElement2");
 		  const mask_item3 = document.getElementById("hiddenElement3");
-		  let show_YearRpt="" , show_SeasonRpt="" , show_MonthRpt="" , tr_line=""; 
+		  let show_YearRpt="" , show_SeasonRpt="" , show_MonthRpt="" , tr_line="" , itemYear_stockname="" ; 
           let width = 0 , intervalIds = [] , itemYear_arry1 = [] , itemYear_arry2 = [] , itemYear_arry3 = []  ;
 		  let str_1="https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:", 
 			  str_2="2449", 
@@ -232,7 +232,7 @@
                   $.each(data,function(key11,item11){
                      if (key11 === 'data') {
                      var itemData = item11 ;
-					 span_rpt="<span class='span_rpt'>(<button onclick='showElement(2303);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 
+					 span_rpt="<span class='span_rpt'>(<button onclick='showElement(2324);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 
                    	//  $('ul').append('<li>'+item1+'</li>');                   	
                     var itemData11 = item11; 	          
                     $.each(itemData11,function(key21,item21){
@@ -299,7 +299,7 @@
                      if (key11 === 'data') {
                    	//  $('ul').append('<li>'+item1+'</li>');                   	
                     var itemData11 = item11; 
-					span_rpt="<span class='span_rpt'>(<button onclick='showElement(3008);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 					
+					span_rpt="<span class='span_rpt'>(<button onclick='showElement(1102);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 					
                     $.each(itemData11,function(key21,item21){
                     	if (key21  === 'quote' ) {
                     		  var itemData21 = item21;
@@ -365,7 +365,7 @@
                      if (key11 === 'data') {
                    	//  $('ul').append('<li>'+item1+'</li>');                   	
                     var itemData11 = item11; 
-					span_rpt="<span class='span_rpt'>(<button onclick='showElement(3481);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 					
+					span_rpt="<span class='span_rpt'>(<button onclick='showElement(2330);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 					
                     $.each(itemData11,function(key21,item21){
                     	if (key21  === 'quote' ) {
                     		  var itemData21 = item21;
@@ -568,7 +568,7 @@
                    document.getElementById("s01").addEventListener("change", myFunction);   
                 } 
                */              	
-                               $.getJSON('https://ws.api.cnyes.com/ws/api/v3/universal/quote?type=IDXMAJOR&column=B&page=2&limit=10',function(data){
+                $.getJSON('https://ws.api.cnyes.com/ws/api/v3/universal/quote?type=IDXMAJOR&column=B&page=2&limit=10',function(data){
                     // console.log('success');
                   $.each(data,function(key1,item1){
                      if (key1 === 'data') {
@@ -825,8 +825,12 @@
                   $.each(data,function(key1,item1){
                      if (key1 === 'data') {
                    	   //  $('ul').append('<li>'+item1+'</li>');
-                        var itemData = item1[0]; 	  
+                        var itemData = item1[0]; 							
                         $.each(itemData,function(key2,item2){
+						   if (key2  === 'name' ) {
+                             itemYear_stockname = item2 ;
+							 console.log(itemYear_stockname);
+                            }								
                     	   if (key2  === 'revenue' ) {
 							    itemYear_arry2= item2 ;
                     		    var itemData2 = item2;
@@ -906,7 +910,7 @@
    function step3() {
         return new Promise((resolve) => {
         setTimeout(() => {						 
-			show_YearRpt='<table style="color: rgb(132, 141, 151); font-size: 14px; text-align: right;">' + '<thead><tr><td>月份</td><td>營收(千元)</td><td>年增率</td></thead><tbody>' + tr_line  + '</tbody></table>'  ;
+		show_YearRpt='<table style="color: rgb(132, 141, 151); font-size: 14px; text-align: right;">' + '<thead><tr><td>[' + itemYear_stockname + ']財報&nbsp;月份</td><td>營收(千元)</td><td>年增率</td></thead><tbody>' + tr_line  + '</tbody></table>'  ;
          // console.log("Step 3 完成");
          resolve("Step 3 結果");
         }, 250);
