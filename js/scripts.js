@@ -537,8 +537,7 @@
 				}			
               //  Ending Option selected index section  
                };  
-               
-                   
+                     
           function getWDATA() {
                /*
                 if (firstVisit === false) {
