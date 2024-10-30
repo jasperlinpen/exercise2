@@ -1,11 +1,28 @@
           const element1 = document.getElementById("myBar1");
-          let width = 0 , intervalIds = []  ;
+		  const mask_item1 = document.getElementById("hiddenElement1");
+		  const mask_item2 = document.getElementById("hiddenElement2");
+		  const mask_item3 = document.getElementById("hiddenElement3");
+		  let show_YearRpt="" , show_SeasonRpt="" , show_MonthRpt="" , tr_line=""; 
+          let width = 0 , intervalIds = [] , itemYear_arry1 = [] , itemYear_arry2 = [] , itemYear_arry3 = []  ;
 		  let str_1="https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:", 
 			  str_2="2449", 
-			  str_3=":STOCK&quote=1" 
-			  ajaxURL= str_1 + str_2 + str_3
+			  str_3=":STOCK&quote=1" ,
+			  ajaxURL= str_1 + str_2 + str_3 ,
 			  s01_val="0" ; 				  
           window.addEventListener('load',function(){
+	    // document.getElementById('hiddenElement').classList.add('displayElementYN');
+		  if (mask_item1.style.display == "none" )
+			  hiddenMsg1.style.display = "none" ; 
+		  if (!mask_item1.style.displayElementYN ) { 
+			  // console.log("NNN") ;
+			  //  mask_item1.classList.add('displayElementYN');
+				mask_item1.style.display = 'none';
+			  // console.log(mask_item1.style.display) ;
+			   }
+            else 
+			{ 
+              // console.log(mask_item1.style.display) ;
+		    }
 		  getDATA();
           getWDATA();
           element1.style.width = '0%';  
@@ -135,7 +152,7 @@
 			
                      
           function getDATA() {
-           	   var d = new Date();
+           	   var d = new Date() , span_rpt="" ;
                $('#date1').html((d.getMonth()+1) + '/' + d.getDate() + '&nbsp;' + d.getHours() + ':'  + d.getMinutes());
                if (width === 100 ) {
 				   width = 0; 
@@ -145,19 +162,20 @@
                       element1.style.width = width + '%'; 
                    } 
 				           	
-                $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:2449:STOCK&quote=1',function(data){
+                $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:1102:STOCK&quote=1',function(data){
                     // console.log('success');
                   $.each(data,function(key1,item1){
                      if (key1 === 'data') {
                    	//  $('ul').append('<li>'+item1+'</li>');
-                    var itemData = item1; 	          
+                    var itemData = item1 ;
+					span_rpt="<span class='span_rpt'>(<button onclick='showElement(1102);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	          
                     $.each(itemData,function(key2,item2){
                     	if (key2  === 'quote' ) {
                     		  var itemData2 = item2;
                     		//  console.log(itemData2); 	
                     		  $.each(itemData2,function(key3,item3){  
                              if (key3 === '200009') {
-                 	           $("#span11").html(item3); 
+                 	           $("#span11").html(item3 + span_rpt); 
                              }
                              if (key3 === '6') {
                  	           $("#span12").html(item3);}
@@ -208,11 +226,13 @@
                  });
                 });     
                      
-              //  2nd stock section  
+              //  2nd stock section		  
                  $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:2324:STOCK&quote=1',function(data){
                     // console.log('success');
                   $.each(data,function(key11,item11){
                      if (key11 === 'data') {
+                     var itemData = item11 ;
+					 span_rpt="<span class='span_rpt'>(<button onclick='showElement(2303);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 
                    	//  $('ul').append('<li>'+item1+'</li>');                   	
                     var itemData11 = item11; 	          
                     $.each(itemData11,function(key21,item21){
@@ -221,7 +241,7 @@
                     		 // console.log(itemData21); 	
                     		  $.each(itemData21,function(key31,item31){  
                              if (key31 === '200009') {
-                 	              $("#span21").html(item31); 
+                 	              $("#span21").html(item31 + span_rpt); 
                              }
                              if (key31 === '6') {
                  	              $("#span22").html(item31); 
@@ -278,14 +298,15 @@
                   $.each(data,function(key11,item11){
                      if (key11 === 'data') {
                    	//  $('ul').append('<li>'+item1+'</li>');                   	
-                    var itemData11 = item11; 	          
+                    var itemData11 = item11; 
+					span_rpt="<span class='span_rpt'>(<button onclick='showElement(3008);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 					
                     $.each(itemData11,function(key21,item21){
                     	if (key21  === 'quote' ) {
                     		  var itemData21 = item21;
                     		 // console.log(itemData21); 	
                     		  $.each(itemData21,function(key31,item31){  
                              if (key31 === '200009') {
-                 	              $("#span31").html(item31); 	
+                 	              $("#span31").html(item31 + span_rpt); 	
                              }
                              if (key31 === '6') {
                  	              $("#span32").html(item31); 
@@ -343,14 +364,15 @@
                   $.each(data,function(key11,item11){
                      if (key11 === 'data') {
                    	//  $('ul').append('<li>'+item1+'</li>');                   	
-                    var itemData11 = item11; 	          
+                    var itemData11 = item11; 
+					span_rpt="<span class='span_rpt'>(<button onclick='showElement(3481);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 					
                     $.each(itemData11,function(key21,item21){
                     	if (key21  === 'quote' ) {
                     		  var itemData21 = item21;
                     		 // console.log(itemData21); 	
                     		  $.each(itemData21,function(key31,item31){  
                              if (key31 === '200009') {
-                 	              $("#tsmc1").html(item31); 	
+                 	              $("#tsmc1").html(item31 + span_rpt); 	
                              }
                              if (key31 === '6') {
                  	              $("#tsmc2").html(item31); 
@@ -477,14 +499,15 @@
                   $.each(data,function(key11,item11){
                      if (key11 === 'data') {
                    	//  $('ul').append('<li>'+item1+'</li>');                   	
-                    var itemData11 = item11; 	          
+                    var itemData11 = item11; 
+					span_rpt="<span class='span_rpt'>(<button onclick='showElement(3481);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 					
                     $.each(itemData11,function(key21,item21){
                     	if (key21  === 'quote' ) {
                     		  var itemData21 = item21;
                     		 // console.log(itemData21); 	
                     		  $.each(itemData21,function(key31,item31){  
                              if (key31 === '200009') {
-                 	              $("#op11").html(item31); 
+                 	              $("#op11").html(item31 + span_rpt); 
                              }
                              if (key31 === '6') {
                  	              $("#op12").html(item31); 
@@ -537,14 +560,15 @@
 				}			
               //  Ending Option selected index section  
                };  
-                     
+               
+                   
           function getWDATA() {
                /*
                 if (firstVisit === false) {
                    document.getElementById("s01").addEventListener("change", myFunction);   
                 } 
                */              	
-                $.getJSON('https://ws.api.cnyes.com/ws/api/v3/universal/quote?type=IDXMAJOR&column=B&page=2&limit=10',function(data){
+                               $.getJSON('https://ws.api.cnyes.com/ws/api/v3/universal/quote?type=IDXMAJOR&column=B&page=2&limit=10',function(data){
                     // console.log('success');
                   $.each(data,function(key1,item1){
                      if (key1 === 'data') {
@@ -672,3 +696,306 @@
                  });
                 }); 
                };  
+
+       async function getYSMDATA2() {
+			 var url = "https://marketinfo.api.cnyes.com/mi/api/v1/financialIndicator/revenue/TWS:2330:STOCK?resolution=Y&year=5&to=1561305600";
+             $.getJSON(url)
+               .done(function(data){
+                  $.each(data,function(key1,item1){
+                     if (key1 === 'data') {
+                        var itemData = item1[0]; 	  
+                        $.each(itemData,function(key2,item2){
+                    	   if (key2  === 'revenue' ) {
+							    itemYear_arry2= item2/1000;
+                    		    var itemData2 = item2;
+                    		    var itemDataTemp ;       		              		
+                    	    }  
+                        // YearRevenue - Ending   
+						//  ***************************************
+                    	   if (key2  === 'revenueYOY' ) {
+							   	itemYear_arry3= item2;
+                    		    var itemData2 = item2;
+                    		    var itemDataTemp ;           		              		
+                    	   }  
+						 // YOY - Ending   
+						 //  ***************************************						
+                    	   if (key2  === 'time' ) {
+							    itemYear_arry1= item2;
+                    		    var itemData2 = item2;
+                    		    var itemDataTemp ;            		              		
+                    	   }  
+						  // YOY - Ending    
+						  //  ***************************************							
+                        }); 
+                     };
+                  });
+				console.log("AJAX request successfully completed.");
+                })
+                .fail(function(jqxhr, textStatus, error) {
+                       $("#hiddenElement").html("<p>An error occurred while loading data.</p>");
+                       console.error("AJAX request failed: " + textStatus + ", " + error);
+                })
+                .always(function() {
+                       console.log("AJAX request completed (success or fail).");
+                });                  		
+			 //  return itemYear_arry2 ;
+		  }
+
+      function getYSMDATA() {
+               /*
+                if (firstVisit === false) {
+                   document.getElementById("s01").addEventListener("change", myFunction);   
+                } 
+               */   	
+			   
+                $.getJSON('https://marketinfo.api.cnyes.com/mi/api/v1/financialIndicator/revenue/TWS:2330:STOCK?resolution=Y&year=5&to=1561305600',function(data){
+                  $.each(data,function(key1,item1){
+                     if (key1 === 'data') {
+                   	   //  $('ul').append('<li>'+item1+'</li>');
+                        var itemData = item1[0]; 	  
+                        $.each(itemData,function(key2,item2){
+                    	   if (key2  === 'revenue' ) {
+							    itemYear_arry2= item2;
+							//	console.log("Pass1:" + itemYear_arry2);
+                    		    var itemData2 = item2;
+                    		    var itemDataTemp ;
+                    		   // YearRevenue - starting
+                    		  $.each(itemData2,function(key3,item3){
+								  //  console.log(item3) ;             
+                 	              //   itemDataTemp = item3 ;
+                                    /*            					     
+									 $.each(itemDataTemp,function(i,val) {
+                                         console.log ( i + val );
+                                       });
+                                     */
+                                 }) ; 
+                    		    // YearRevenue - Ending  
+ 		                         		              		
+                    	}  //  ***************************************
+                    	   if (key2  === 'revenueYOY' ) {
+							   	itemYear_arry3= item2;
+                    		    var itemData2 = item2;
+                    		    var itemDataTemp ;
+                    		   // YOY - starting
+                    		  $.each(itemData2,function(key3,item3){
+								  // console.log(item3) ;             
+                                    /*            					     
+									 $.each(itemDataTemp,function(i,val) {
+                                         console.log ( i + val );
+                                       });
+                                     */
+                                 }) ; 
+                    		    // YOY - Ending              		              		
+                    	}  //  ***************************************						
+                    	   if (key2  === 'time' ) {
+							    itemYear_arry1= item2;
+                    		    var itemData2 = item2;
+                    		    var itemDataTemp ;
+                    		   // YOY - starting
+                    		  $.each(itemData2,function(key3,item3){
+								   //  console.log(item3) ;             
+                                    /*            					     
+									 $.each(itemDataTemp,function(i,val) {
+                                         console.log ( i + val );
+                                       });
+                                     */
+                                 }) ; 
+                    		    // YOY - Ending              		              		
+                    	}  //  ***************************************							
+
+                      });               
+                  }
+                 });
+                });	
+			   //  console.log( "Pass1:" + itemYear_arry2) ;				
+			   return itemYear_arry2 ;
+            };  
+	// **************************		   
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Begin
+   function step1(stockNo) {
+        return new Promise((resolve) => {
+        setTimeout(() => {
+			// Step1 URL Begin
+			   $("#hiddenMsg1").html("<span>Wait data ...<span>"); 
+			   if (mask_item1.style.display == "none" )
+				   hiddenMsg1.style.display = "block" ;
+				   var urlStr= "https://marketinfo.api.cnyes.com/mi/api/v1/financialIndicator/revenue/TWS:" + stockNo + ":STOCK?year=5&to=1572364800";
+                $.getJSON(urlStr,function(data){
+                  $.each(data,function(key1,item1){
+                     if (key1 === 'data') {
+                   	   //  $('ul').append('<li>'+item1+'</li>');
+                        var itemData = item1[0]; 	  
+                        $.each(itemData,function(key2,item2){
+                    	   if (key2  === 'revenue' ) {
+							    itemYear_arry2= item2 ;
+                    		    var itemData2 = item2;
+                    		    var itemDataTemp ;
+                    		   // YearRevenue - starting
+                    		  $.each(itemData2,function(key3,item3){
+								  //  console.log(item3) ;             
+                 	              //   itemDataTemp = item3 ;
+                                    /*            					     
+									 $.each(itemDataTemp,function(i,val) {
+                                         console.log ( i + val );
+                                       });
+                                     */
+                                 }) ; 
+                    		    // YearRevenue - Ending  
+ 		                         		              		
+                    	}  //  ***************************************
+                    	   if (key2  === 'revenueYOY' ) {
+							   	itemYear_arry3= item2;
+                    		    var itemData2 = item2;
+                    		    var itemDataTemp ;
+                    		   // YOY - starting
+                    		  $.each(itemData2,function(key3,item3){
+								  // console.log(item3) ;             
+                                    /*            					     
+									 $.each(itemDataTemp,function(i,val) {
+                                         console.log ( i + val );
+                                       });
+                                     */
+                                 }) ; 
+                    		    // YOY - Ending              		              		
+                    	}  //  ***************************************						
+                    	   if (key2  === 'time' ) {
+							    itemYear_arry1= item2;
+                    		    var itemData2 = item2;
+                    		    var itemDataTemp ;
+                    		   // YOY - starting
+                    		  $.each(itemData2,function(key3,item3){
+								   //  console.log(item3) ;             
+                                    /*            					     
+									 $.each(itemDataTemp,function(i,val) {
+                                         console.log ( i + val );
+                                       });
+                                     */
+                                 }) ; 
+                    		    // YOY - Ending              		              		
+                    	}  //  ***************************************							
+
+                      });               
+                  }
+                 });
+                });		
+			// Step1 URL End
+           // console.log("Step 1 完成");
+           resolve("Step 1 結果");
+        }, 700);
+       });
+   }
+
+   function step2() {
+        return new Promise((resolve) => {
+        setTimeout(() => {		 
+			 tr_line ="",show_YearRpt="" ;
+			 var item2comma=0 ;
+             for (let i = 0; i < itemYear_arry1.length; i++) {
+				 item2comma = (itemYear_arry2[i]/1000) + "" ;
+				 item2comma = item2comma.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+				 tr_line = tr_line + '<tr><td>' + itemYear_arry1[i]　+ '</td><td>' + item2comma + '</td><td>' +　itemYear_arry3[i]　+'</td></tr>' ;
+			 } ;
+            // console.log("Pass3:" + tr_line) ;
+           // console.log("Step 2 完成");
+           resolve("Step 2 結果");
+        }, 500);
+      });
+   }
+
+   function step3() {
+        return new Promise((resolve) => {
+        setTimeout(() => {						 
+			show_YearRpt='<table style="color: rgb(132, 141, 151); font-size: 14px; text-align: right;">' + '<thead><tr><td>月份</td><td>營收(千元)</td><td>年增率</td></thead><tbody>' + tr_line  + '</tbody></table>'  ;
+         // console.log("Step 3 完成");
+         resolve("Step 3 結果");
+        }, 250);
+    });
+   }
+   
+   function step4() {
+        return new Promise((resolve) => {
+        setTimeout(() => {
+            $("#hiddenElement1").html(show_YearRpt); 
+			if (mask_item1.style.display == "none" )
+			   {
+				 hiddenMsg1.style.display = "none" ; 
+                 mask_item1.style.display = "block"  // Change display to block to make it visible
+               }
+			else
+      		     mask_item1.style.display = "none" ;
+
+         // console.log("Step 4 完成");
+         resolve("Step 4 結果");
+        }, 10);
+    });
+   }
+
+   // 使用 then 來串接 Promise，依序執行
+   // ==========================
+   step1()
+      .then(result1 => {
+        console.log(result1); // Step 1 結果
+        return step2();        // 等 step2 完成後才進行下一步
+       })
+      .then(result2 => {
+        console.log(result2);  // Step 2 結果
+        return step3();        // 等 step3 完成後才進行下一步
+       })
+      .then(result3 => {
+        console.log(result3);  // Step 3 結果
+        console.log("所有步驟完成");
+      })
+      .catch(error => {
+        console.log("出現錯誤: ", error);
+      });
+	// ===使用 then == Ending========================== */
+	  
+   async function executeStepsSequentially(stockNo) {
+       try {
+          let result1 = await step1(stockNo);
+        // console.log(result1); // Step 1 結果
+
+          let result2 = await step2();
+        // console.log(result2); // Step 2 結果
+
+          let result3 = await step3();
+        // console.log(result3); // Step 3 結果
+        
+          let result4 = await step4() ; 
+
+        // console.log(result4); // Step 4 結果 
+
+        // console.log("所有步驟完成");
+       } catch (error) {
+          console.log("出現錯誤: ", error);
+      }
+     }
+
+    // executeStepsSequentially();
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ End
+  
+    // **************************
+	  function showElement(stockNo) {
+		 if  (mask_item1.style.display == "none" ) 
+			  executeStepsSequentially(stockNo); 
+         else
+      		  mask_item1.style.display = "none" ;
+		 //	example();
+			// getYSMDATA2() ;
+			// ajj= getYSMDATA2() ;
+		    // console.log( "Pass2:" + itemYear_arry2) ;
+
+			
+			/*
+			while(intervalIds.length){
+                  clearInterval(intervalIds.pop());
+             }
+			*/ 
+
+			 
+        //  console.log(mask_item1.style.display) ;
+		//	console.log (element.style.display) ;
+
+	    }		 
