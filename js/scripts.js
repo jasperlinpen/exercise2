@@ -864,19 +864,7 @@
                     		    // YOY - Ending              		              		
                     	}  //  ***************************************						
                     	   if (key2  === 'time' ) {
-							    itemYear_arry1= item2;
-                    		    var itemData2 = item2;
-                    		    var itemDataTemp ;
-                    		   // YOY - starting
-                    		  $.each(itemData2,function(key3,item3){
-								   //  console.log(item3) ;             
-                                    /*            					     
-									 $.each(itemDataTemp,function(i,val) {
-                                         console.log ( i + val );
-                                       });
-                                     */
-                                 }) ; 
-                    		    // YOY - Ending              		              		
+							  itemYear_arry1= item2 ;		
                     	}  //  ***************************************							
 
                       });               
@@ -898,7 +886,7 @@
              for (let i = 0; i < itemYear_arry1.length; i++) {
 				 item2comma = (itemYear_arry2[i]/1000) + "" ;
 				 item2comma = item2comma.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
-				 tr_line = tr_line + '<tr><td>' + itemYear_arry1[i]　+ '</td><td>' + item2comma + '</td><td>' +　itemYear_arry3[i]　+'</td></tr>' ;
+				 tr_line = tr_line + '<tr><td>' + timestampToTime(itemYear_arry1[i]) + '</td><td>' + item2comma + '</td><td>' +　itemYear_arry3[i]　+'</td></tr>' ;
 			 } ;
             // console.log("Pass3:" + tr_line) ;
            // console.log("Step 2 完成");
@@ -979,6 +967,24 @@
     // executeStepsSequentially();
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ End
+   function timestampToTime(timestamp) {
+        var date = new Date(timestamp * 1000);
+        var Y = date.getFullYear() + '-';
+        var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) ;
+      /*
+        var D = date.getDate() + ' ';
+        var h = date.getHours() + ':';
+        var m = date.getMinutes() + ':';
+        var s = date.getSeconds();
+	  */	
+      //  return Y+M+D+h+m+s;
+	  	console.log(Y) ;
+	    return Y+M ;
+
+    }
+
+
+
   
     // **************************
 	  function showElement(stockNo) {
