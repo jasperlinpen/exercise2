@@ -500,8 +500,9 @@
                      if (key11 === 'data') {
                    	//  $('ul').append('<li>'+item1+'</li>');                   	
                     var itemData11 = item11; 
-					span_rpt="<span class='span_rpt'>(<button onclick='showElement(3481);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 					
-                    $.each(itemData11,function(key21,item21){
+					// span_rpt="<span class='span_rpt'>(<button onclick='showElement(3481);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 					
+                    span_rpt="<span class='span_rpt'>(<button onclick='showElement(" + str_2 + " );'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 
+					$.each(itemData11,function(key21,item21){
                     	if (key21  === 'quote' ) {
                     		  var itemData21 = item21;
                     		 // console.log(itemData21); 	
@@ -898,7 +899,7 @@
    function step3() {
         return new Promise((resolve) => {
         setTimeout(() => {						 
-		show_YearRpt='<table style="color: rgb(132, 141, 151); font-size: 14px; text-align: right;">' + '<thead><tr><td>[' + itemYear_stockname + ']財報&nbsp;月份</td><td>營收(千元)</td><td>年增率</td></thead><tbody>' + tr_line  + '</tbody></table>'  ;
+		show_YearRpt='<table width="30%" style="color: rgb(132, 141, 151); font-size: 14px; text-align: right;">' + '<thead><tr><td style="width:40%">[' + itemYear_stockname + ']月財報</td><td style="width:40%">營收(千元)</td><td style="width:20%">年增率</td></thead><tbody>' + tr_line  + '</tbody></table>'  ;
          // console.log("Step 3 完成");
          resolve("Step 3 結果");
         }, 250);
