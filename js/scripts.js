@@ -1,9 +1,9 @@
-          const element1 = document.getElementById("myBar1");
+      const element1 = document.getElementById("myBar1");
 		  const mask_item1 = document.getElementById("hiddenElement1");
 		  const mask_item2 = document.getElementById("hiddenElement2");
 		  const mask_item3 = document.getElementById("hiddenElement3");
 		  let show_YearRpt="" , show_SeasonRpt="" , show_MonthRpt="" , tr_line="" , itemYear_stockname="" ; 
-          let width = 0 , intervalIds = [] , itemYear_arry1 = [] , itemYear_arry2 = [] , itemYear_arry3 = []  ;
+      let width = 0 , intervalIds = [] , itemYear_arry1 = [] , itemYear_arry2 = [] , itemYear_arry3 = []  ;
 		  let str_1="https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:", 
 			  str_2="2449", 
 			  str_3=":STOCK&quote=1" ,
@@ -34,7 +34,7 @@
              switch ( $(this).val()) {
                       case "0": 
                           width = 100;
-						  refSec = 99999 ;
+						              refSec = 99999 ;
                        	  element1.style.width = '0%'; 
                           break;
                       case "1": 
@@ -73,16 +73,16 @@
                    str_2=document.getElementById("s02").value ;
 				   while(intervalIds.length){
                           clearInterval(intervalIds.pop());
-                    }
+            }
 				   if  (refSec != 99999 ) {
 				       id = setInterval(getDATA,refSec);
 				       intervalIds.push(id); 
 					 }
 					 else 
 					 {
-				        while(intervalIds.length){
+          while(intervalIds.length){
                           clearInterval(intervalIds.pop());
-                        }
+          }
 						
 					 }
 
@@ -155,7 +155,7 @@
            	   var d = new Date() , span_rpt="" ;
                $('#date1').html((d.getMonth()+1) + '/' + d.getDate() + '&nbsp;' + d.getHours() + ':'  + d.getMinutes());
                if (width === 100 ) {
-				   width = 0; 
+				          width = 0; 
                    } else {
                     width += 7 ;
                    if (width > 95) width = width-95 ; 
@@ -168,7 +168,7 @@
                      if (key1 === 'data') {
                    	//  $('ul').append('<li>'+item1+'</li>');
                     var itemData = item1 ;
-					span_rpt="<span class='span_rpt'>(<button onclick='showElement(1102);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	          
+					          span_rpt="<span class='span_rpt'>(<button onclick='showElement1(1102);'>M</button>)</span><span class='span_rpt'>(<button onclick='showElement2(1102);'>S</button>)</span>" ; 	          
                     $.each(itemData,function(key2,item2){
                     	if (key2  === 'quote' ) {
                     		  var itemData2 = item2;
@@ -232,7 +232,7 @@
                   $.each(data,function(key11,item11){
                      if (key11 === 'data') {
                      var itemData = item11 ;
-					 span_rpt="<span class='span_rpt'>(<button onclick='showElement(2324);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 
+                    span_rpt="<span class='span_rpt'>(<button onclick='showElement1(2324);'>M</button>)</span><span class='span_rpt'>(<button onclick='showElement2(2324);'>S</button>)</span>" ; 	 
                    	//  $('ul').append('<li>'+item1+'</li>');                   	
                     var itemData11 = item11; 	          
                     $.each(itemData11,function(key21,item21){
@@ -299,7 +299,7 @@
                      if (key11 === 'data') {
                    	//  $('ul').append('<li>'+item1+'</li>');                   	
                     var itemData11 = item11; 
-					span_rpt="<span class='span_rpt'>(<button onclick='showElement(1102);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 					
+					          span_rpt="<span class='span_rpt'>(<button onclick='showElement1(1102);'>M</button>)</span><span class='span_rpt'>(<button onclick='showElement2(1102);'>S</button>)</span>" ; 	 					
                     $.each(itemData11,function(key21,item21){
                     	if (key21  === 'quote' ) {
                     		  var itemData21 = item21;
@@ -365,7 +365,7 @@
                      if (key11 === 'data') {
                    	//  $('ul').append('<li>'+item1+'</li>');                   	
                     var itemData11 = item11; 
-					span_rpt="<span class='span_rpt'>(<button onclick='showElement(2330);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 					
+					          span_rpt="<span class='span_rpt'>(<button onclick='showElement1(2330);'>M</button>)</span><span class='span_rpt'>(<button onclick='showElement2(2330);'>S</button>)</span>" ; 	 					
                     $.each(itemData11,function(key21,item21){
                     	if (key21  === 'quote' ) {
                     		  var itemData21 = item21;
@@ -492,7 +492,7 @@
               //  Ending Weighed index section   
               //  Option selected index  section
 			 if (str_2 !="0") {
-				 ajaxURL=str_1 + str_2 + str_3 ;
+				      ajaxURL=str_1 + str_2 + str_3 ;
               //  console.log(ajaxURL);		 
                  $.getJSON(ajaxURL,function(data){
                     // console.log('success');
@@ -500,9 +500,9 @@
                      if (key11 === 'data') {
                    	//  $('ul').append('<li>'+item1+'</li>');                   	
                     var itemData11 = item11; 
-					// span_rpt="<span class='span_rpt'>(<button onclick='showElement(3481);'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 					
-                    span_rpt="<span class='span_rpt'>(<button onclick='showElement(" + str_2 + " );'>M</button>)</span><span class='span_rpt'>(<a href='./revenueS.json'>S</a>)</span><span class='span_rpt'>(<a href='./revenueY.json'>Y</a>)</span>" ; 	 
-					$.each(itemData11,function(key21,item21){
+					          // span_rpt="<span class='span_rpt'>(<button onclick='showElement1(3481);'>M</button>)</span><span class='span_rpt'>(<a href='showElement2(3481);'>S</a>)</span>" ; 	  										
+                    span_rpt="<span class='span_rpt'>(<button onclick='showElement1(" + str_2 + " );'>M</button>)</span><span class='span_rpt'>(<button onclick='showElement2(" + str_2 + " );'>S</button>)</span>" ; 	 
+					        $.each(itemData11,function(key21,item21){
                     	if (key21  === 'quote' ) {
                     		  var itemData21 = item21;
                     		 // console.log(itemData21); 	
@@ -814,7 +814,7 @@
 	// **************************		   
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Begin
-   function step1(stockNo) {
+   function step11(stockNo) {
         return new Promise((resolve) => {
         setTimeout(() => {
 			// Step1 URL Begin
@@ -828,20 +828,20 @@
                    	   //  $('ul').append('<li>'+item1+'</li>');
                         var itemData = item1[0]; 							
                         $.each(itemData,function(key2,item2){
-						   if (key2  === 'name' ) {
+						        if (key2  === 'name' ) {
                              itemYear_stockname = item2 ;
-							 console.log(itemYear_stockname);
+							               // console.log(itemYear_stockname);
                             }								
                     	   if (key2  === 'revenue' ) {
-							    itemYear_arry2= item2 ;
+                            itemYear_arry2= item2 ;
                     		    var itemData2 = item2;
                     		    var itemDataTemp ;
                     		   // YearRevenue - starting
                     		  $.each(itemData2,function(key3,item3){
-								  //  console.log(item3) ;             
-                 	              //   itemDataTemp = item3 ;
+								          //  console.log(item3) ;             
+                          //   itemDataTemp = item3 ;
                                     /*            					     
-									 $.each(itemDataTemp,function(i,val) {
+									              $.each(itemDataTemp,function(i,val) {
                                          console.log ( i + val );
                                        });
                                      */
@@ -850,22 +850,22 @@
  		                         		              		
                     	}  //  ***************************************
                     	   if (key2  === 'revenueYOY' ) {
-							   	itemYear_arry3= item2;
+							   	          itemYear_arry3= item2;
                     		    var itemData2 = item2;
                     		    var itemDataTemp ;
                     		   // YOY - starting
                     		  $.each(itemData2,function(key3,item3){
-								  // console.log(item3) ;             
+								            // console.log(item3) ;             
                                     /*            					     
-									 $.each(itemDataTemp,function(i,val) {
+                            $.each(itemDataTemp,function(i,val) {
                                          console.log ( i + val );
                                        });
                                      */
-                                 }) ; 
+                            }) ; 
                     		    // YOY - Ending              		              		
                     	}  //  ***************************************						
                     	   if (key2  === 'time' ) {
-							  itemYear_arry1= item2 ;		
+							              itemYear_arry1= item2 ;		
                     	}  //  ***************************************							
 
                       });               
@@ -879,15 +879,15 @@
        });
    }
 
-   function step2() {
+   function step12() {
         return new Promise((resolve) => {
         setTimeout(() => {		 
 			 tr_line ="",show_YearRpt="" ;
-			 var item2comma=0 ;
+			 var item2currency=0 ;
              for (let i = 0; i < itemYear_arry1.length; i++) {
-				 item2comma = (itemYear_arry2[i]/1000) + "" ;
-				 item2comma = item2comma.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
-				 tr_line = tr_line + '<tr><td>' + timestampToTime(itemYear_arry1[i]) + '</td><td>' + item2comma + '</td><td>' +　itemYear_arry3[i]　+'</td></tr>' ;
+				 item2currency = (itemYear_arry2[i]/1000) + "" ;
+				 item2currency = item2currency.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+				 tr_line = tr_line + '<tr><td>' + timestampToTime(itemYear_arry1[i]) + '</td><td>' + item2currency + '</td><td>' +　itemYear_arry3[i]　+'</td></tr>' ;
 			 } ;
             // console.log("Pass3:" + tr_line) ;
            // console.log("Step 2 完成");
@@ -896,26 +896,26 @@
       });
    }
 
-   function step3() {
+   function step13() {
         return new Promise((resolve) => {
         setTimeout(() => {						 
-		show_YearRpt='<table width="30%" style="color: rgb(132, 141, 151); font-size: 14px; text-align: right;">' + '<thead><tr><td style="width:40%">[' + itemYear_stockname + ']月財報</td><td style="width:40%">營收(千元)</td><td style="width:20%">年增率</td></thead><tbody>' + tr_line  + '</tbody></table>'  ;
+		    show_YearRpt='<table width="30%" style="color: rgb(132, 141, 151); font-size: 14px; text-align: right;">' + '<thead><tr><td style="width:40%">[' + itemYear_stockname + ']月財報</td><td style="width:40%">營收(千元)</td><td style="width:20%">年增率</td></thead><tbody>' + tr_line  + '</tbody></table>'  ;
          // console.log("Step 3 完成");
          resolve("Step 3 結果");
         }, 250);
     });
    }
    
-   function step4() {
+   function step14() {
         return new Promise((resolve) => {
         setTimeout(() => {
             $("#hiddenElement1").html(show_YearRpt); 
-			if (mask_item1.style.display == "none" )
+			  if (mask_item1.style.display == "none" )
 			   {
 				 hiddenMsg1.style.display = "none" ; 
                  mask_item1.style.display = "block"  // Change display to block to make it visible
                }
-			else
+			  else
       		     mask_item1.style.display = "none" ;
 
          // console.log("Step 4 完成");
@@ -924,19 +924,179 @@
     });
    }
 
+   function step21(stockNo) {
+    return new Promise((resolve) => {
+    setTimeout(() => {
+  // Step1 URL Begin
+     $("#hiddenMsg1").html("<span>Wait data ...<span>"); 
+     if (mask_item1.style.display == "none" )
+       hiddenMsg1.style.display = "block" ;
+       var urlStr= "https://marketinfo.api.cnyes.com/mi/api/v1/financialIndicator/eps/TWS:" + stockNo + ":STOCK?resolution=Q&acc=false&year=5&to=1573488000";
+            $.getJSON(urlStr,function(data){
+              $.each(data,function(key1,item1){
+                if (key1 === 'data') {
+                    //  $('ul').append('<li>'+item1+'</li>');
+                    var itemData = item1[0]; 							
+                    $.each(itemData,function(key2,item2){
+                      if (key2  === 'name' ) {
+                          itemYear_stockname = item2 ;
+                          console.log(itemYear_stockname);
+                        }								
+                      if (key2  === 'epsYOY' ) {
+                        itemYear_arry2= item2 ;
+                        var itemData2 = item2;
+                        var itemDataTemp ;
+                       // YearRevenue - starting
+                        $.each(itemData2,function(key3,item3){
+                            //  console.log(item3) ;             
+                            //   itemDataTemp = item3 ;
+                                /*            					     
+                        $.each(itemDataTemp,function(i,val) {
+                        console.log ( i + val );
+                        });
+                        */
+                        }) ; 
+                        // YearRevenue - Ending                                                  
+                  }  //  ***************************************
+                      if (key2  === 'eps' ) {
+                          itemYear_arry3= item2;
+                      //  console.log (itemYear_arry3) ; // ●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●
+                        var itemData2 = item2;
+                        var itemDataTemp ;
+                       // YOY - starting
+                      $.each(itemData2,function(key3,item3){
+                        // console.log(item3) ;             
+                        /*            					     
+                         $.each(itemDataTemp,function(i,val) {
+                                     console.log ( i + val );
+                                   });
+                                 */
+                      }) ; 
+                      // YOY - Ending              		              		
+                  }  //  ***************************************						
+                if (key2  === 'time' ) {
+                        itemYear_arry1= item2 ;		
+                  }  //  ***************************************							
+                  });               
+              }
+             });
+            });		
+  // Step1 URL End
+       console.log("Step_1 完成");
+       resolve("Step_1 結果");
+    }, 700);
+   });
+}
+
+function step22() {
+    return new Promise((resolve) => {
+    setTimeout(() => {		 
+    tr_line ="",show_SeasonRpt="" ;
+    var item2currency=0;
+    var espEarning_digit=0; 
+    var espDate_arry = [...itemYear_arry1].reverse();
+    var espEarning_arry = [...itemYear_arry3].reverse(); 
+    var accuEarning_arry = espEarning_arry ;
+    var text,subStr ;
+    for (var i = 0; i < espDate_arry.length; i++) {
+      espDate_arry[i]=timestampToTime(espDate_arry[i]) ;
+      subStr =espDate_arry[i].substring(espDate_arry[i].indexOf("-")+1) ;
+      // espEarning_digit=espEarning_arry[i];
+      switch (subStr) {
+        case "01": 
+          //  accuEarning_arry[i] = espEarning_arry[i] ;
+          /* 
+          accuEarning_arry[i] = parseFloat(espEarning_digit.toFixed(2));
+            console.log(espEarning_arry[i]);
+           */ 
+            accuEarning_arry[i]= espEarning_arry[i] ;
+            espEarning_digit=accuEarning_arry[i] ;
+            accuEarning_arry[i]=parseFloat(espEarning_digit.toFixed(2)) ;
+            break ;
+        case "04": 
+            espEarning_digit=accuEarning_arry[i] ;
+            accuEarning_arry[i]=parseFloat(espEarning_digit.toFixed(2)) ;
+            accuEarning_arry[i] += espEarning_arry[i-1] ;
+            espEarning_digit= accuEarning_arry[i] ;
+            accuEarning_arry[i]= parseFloat(espEarning_digit.toFixed(2)) ;
+          /*
+            accuEarning_arry[i] = accuEarning_arry[i-1] + parseFloat(espEarning_digit.toFixed(2));
+            console.log(espEarning_arry[i]);
+          */  
+            break;
+        case "07": 
+            espEarning_digit=accuEarning_arry[i] ;
+            accuEarning_arry[i]=parseFloat(espEarning_digit.toFixed(2)) ;
+            accuEarning_arry[i] += espEarning_arry[i-1] ;
+            espEarning_digit= accuEarning_arry[i] ;
+            accuEarning_arry[i]= parseFloat(espEarning_digit.toFixed(2)) ;
+            break; 
+        case "10": 
+            espEarning_digit=accuEarning_arry[i] ;
+            accuEarning_arry[i]=parseFloat(espEarning_digit.toFixed(2)) ;
+            accuEarning_arry[i] += espEarning_arry[i-1] ;
+            espEarning_digit= accuEarning_arry[i] ;
+            accuEarning_arry[i]= parseFloat(espEarning_digit.toFixed(2)) ;
+            break;      
+
+      }     
+     // console.log(index);  
+    } ; 
+    accuEarning_arry.reverse() ;
+    for (let i = 0; i < itemYear_arry1.length; i++) {
+        item2currency = (itemYear_arry2[i]/1000) + "" ;
+        item2currency = item2currency.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+        tr_line = tr_line + '<tr><td>' + timestampToTime(itemYear_arry1[i]) + '</td><td>' + item2currency + '</td><td>' +　itemYear_arry3[i]　+'</td><td>' +　accuEarning_arry[i]　+'</td></tr>' ;
+   } ;
+        // console.log("Pass3:" + tr_line) ;
+       console.log("Step_2 完成");
+       resolve("Step_2 結果");
+    }, 500);
+  });
+}
+
+function step23() {
+    return new Promise((resolve) => {
+    setTimeout(() => {						 
+    show_SeasonRpt='<table width="30%" style="color: rgb(132, 141, 151); font-size: 14px; text-align: right;">' + '<thead><tr><td style="width:40%">[' + itemYear_stockname + ']季財報</td><td style="width:40%">epsYOY</td><td style="width:20%">EPS</td><td style="width:35%">累計EPS</td></thead><tbody>' + tr_line  + '</tbody></table>'  ;
+    console.log("Step_3 完成");
+     resolve("Step_3 結果");
+    }, 250);
+});
+}
+
+function step24() {
+    return new Promise((resolve) => {
+    setTimeout(() => {
+        $("#hiddenElement1").html(show_SeasonRpt); 
+  if (mask_item1.style.display == "none" )
+     {
+     hiddenMsg1.style.display = "none" ; 
+             mask_item1.style.display = "block"  // Change display to block to make it visible
+           }
+  else
+           mask_item1.style.display = "none" ;
+
+     console.log("Step_4 完成");
+     resolve("Step_4 結果");
+    }, 10);
+});
+}
+
+
    // 使用 then 來串接 Promise，依序執行
    // ==========================
-   step1()
-      .then(result1 => {
-        console.log(result1); // Step 1 結果
-        return step2();        // 等 step2 完成後才進行下一步
+   step11()
+      .then(result11 => {
+        console.log(result11); // Step 1 結果
+        return step12();        // 等 step2 完成後才進行下一步
        })
-      .then(result2 => {
-        console.log(result2);  // Step 2 結果
-        return step3();        // 等 step3 完成後才進行下一步
+      .then(result12 => {
+        console.log(result12);  // Step 2 結果
+        return step13();        // 等 step3 完成後才進行下一步
        })
-      .then(result3 => {
-        console.log(result3);  // Step 3 結果
+      .then(result13 => {
+        console.log(result13);  // Step 3 結果
         console.log("所有步驟完成");
       })
       .catch(error => {
@@ -944,28 +1104,50 @@
       });
 	// ===使用 then == Ending========================== */
 	  
-   async function executeStepsSequentially(stockNo) {
-       try {
-          let result1 = await step1(stockNo);
-        // console.log(result1); // Step 1 結果
+      async function executeStepsSequentially1(stockNo) {
+      try {
+         let result11 = await step11(stockNo);
+       // console.log(result1); // Step 11 結果
 
-          let result2 = await step2();
-        // console.log(result2); // Step 2 結果
+         let result12 = await step12();
+       // console.log(result2); // Step 12 結果
 
-          let result3 = await step3();
-        // console.log(result3); // Step 3 結果
-        
-          let result4 = await step4() ; 
+         let result13 = await step13();
+       // console.log(result3); // Step 13 結果
+       
+         let result14 = await step14() ; 
 
-        // console.log(result4); // Step 4 結果 
+       // console.log(result14); // Step 14 結果 
 
-        // console.log("所有步驟完成");
-       } catch (error) {
-          console.log("出現錯誤: ", error);
-      }
+       // console.log("所有步驟完成");
+      } catch (error) {
+         console.log("出現錯誤: ", error);
      }
-
+    }
     // executeStepsSequentially();
+
+
+    async function executeStepsSequentially2(stockNo) {
+      try {
+         let result21 = await step21(stockNo);
+       // console.log(result1); // Step 21 結果
+
+         let result22 = await step22();
+       // console.log(result2); // Step 22 結果
+
+         let result23 = await step23();
+       // console.log(result3); // Step 23 結果
+       
+         let result24 = await step24() ; 
+
+       // console.log(result4); // Step 24 結果 
+
+       // console.log("所有步驟完成");
+      } catch (error) {
+         console.log("出現錯誤: ", error);
+     }
+    }
+
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ End
    function timestampToTime(timestamp) {
@@ -979,7 +1161,7 @@
         var s = date.getSeconds();
 	  */	
       //  return Y+M+D+h+m+s;
-	  	console.log(Y) ;
+	  	// console.log(Y) ;
 	    return Y+M ;
 
     }
@@ -988,9 +1170,9 @@
 
   
     // **************************
-	  function showElement(stockNo) {
+	  function showElement1(stockNo) {
 		 if  (mask_item1.style.display == "none" ) 
-			  executeStepsSequentially(stockNo); 
+			  executeStepsSequentially1(stockNo); 
          else
       		  mask_item1.style.display = "none" ;
 		 //	example();
@@ -1010,3 +1192,27 @@
 		//	console.log (element.style.display) ;
 
 	    }		 
+
+
+    function showElement2(stockNo) {
+        if  (mask_item1.style.display == "none" ) 
+           executeStepsSequentially2(stockNo); 
+            else
+               mask_item1.style.display = "none" ;
+        //	example();
+         // getYSMDATA2() ;
+         // ajj= getYSMDATA2() ;
+           // console.log( "Pass2:" + itemYear_arry2) ;
+   
+         
+         /*
+         while(intervalIds.length){
+                     clearInterval(intervalIds.pop());
+                }
+         */ 
+   
+          
+           //  console.log(mask_item1.style.display) ;
+       //	console.log (element.style.display) ;
+   
+         }		  
