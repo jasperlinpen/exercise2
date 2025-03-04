@@ -541,12 +541,7 @@
                };  
                
                    
-          function getWDATA() {
-               /*
-                if (firstVisit === false) {
-                   document.getElementById("s01").addEventListener("change", myFunction);   
-                } 
-               */              	
+          function getWDATA() {            	
                 $.getJSON('https://ws.api.cnyes.com/ws/api/v3/universal/quote?type=IDXMAJOR&column=B&page=2&limit=10',function(data){
                     // console.log('success');
                   $.each(data,function(key1,item1){
@@ -676,113 +671,6 @@
                 }); 
                };  
 
-       async function getYSMDATA2() {
-			 var url = "https://marketinfo.api.cnyes.com/mi/api/v1/financialIndicator/revenue/TWS:2330:STOCK?resolution=Y&year=5&to=1561305600";
-             $.getJSON(url)
-               .done(function(data){
-                  $.each(data,function(key1,item1){
-                     if (key1 === 'data') {
-                        var itemData = item1[0]; 	  
-                        $.each(itemData,function(key2,item2){
-                    	   if (key2  === 'revenue' ) {
-							    itemYear_arry2= item2/1000;
-                    		    var itemData2 = item2;
-                    		    var itemDataTemp ;       		              		
-                    	    }  
-                        // YearRevenue - Ending   
-						//  ***************************************
-                    	   if (key2  === 'revenueYOY' ) {
-							   	itemYear_arry3= item2;
-                    		    var itemData2 = item2;
-                    		    var itemDataTemp ;           		              		
-                    	   }  
-						 // YOY - Ending   
-						 //  ***************************************						
-                    	   if (key2  === 'time' ) {
-							    itemYear_arry1= item2;
-                    		    var itemData2 = item2;
-                    		    var itemDataTemp ;            		              		
-                    	   }  
-						  // YOY - Ending    
-						  //  ***************************************							
-                        }); 
-                     };
-                  });
-                })
-                .fail(function(jqxhr, textStatus, error) {
-                       $("#hiddenElement").html("<p>An error occurred while loading data.</p>");
-                       console.error("AJAX request failed: " + textStatus + ", " + error);
-                })
-                .always(function() {
-                       console.log("AJAX request completed (success or fail).");
-                });                  		
-			 //  return itemYear_arry2 ;
-		  }
-
-      function getYSMDATA() {
-			   
-                $.getJSON('https://marketinfo.api.cnyes.com/mi/api/v1/financialIndicator/revenue/TWS:2330:STOCK?resolution=Y&year=5&to=1561305600',function(data){
-                  $.each(data,function(key1,item1){
-                     if (key1 === 'data') {
-                   	   //  $('ul').append('<li>'+item1+'</li>');
-                        var itemData = item1[0]; 	  
-                        $.each(itemData,function(key2,item2){
-                    	   if (key2  === 'revenue' ) {
-							    itemYear_arry2= item2;
-							//	console.log("Pass1:" + itemYear_arry2);
-                    		    var itemData2 = item2;
-                    		    var itemDataTemp ;
-                    		   // YearRevenue - starting
-                    		  $.each(itemData2,function(key3,item3){
-								  //  console.log(item3) ;             
-                 	              //   itemDataTemp = item3 ;
-                                    /*            					     
-									 $.each(itemDataTemp,function(i,val) {
-                                         console.log ( i + val );
-                                       });
-                                     */
-                                 }) ; 
-                    		    // YearRevenue - Ending  
- 		                         		              		
-                    	}  //  ***************************************
-                    	   if (key2  === 'revenueYOY' ) {
-							   	itemYear_arry3= item2;
-                    		    var itemData2 = item2;
-                    		    var itemDataTemp ;
-                    		   // YOY - starting
-                    		  $.each(itemData2,function(key3,item3){
-								  // console.log(item3) ;             
-                                    /*            					     
-									 $.each(itemDataTemp,function(i,val) {
-                                         console.log ( i + val );
-                                       });
-                                     */
-                                 }) ; 
-                    		    // YOY - Ending              		              		
-                    	}  //  ***************************************						
-                    	   if (key2  === 'time' ) {
-							    itemYear_arry1= item2;
-                    		    var itemData2 = item2;
-                    		    var itemDataTemp ;
-                    		   // YOY - starting
-                    		  $.each(itemData2,function(key3,item3){
-								   //  console.log(item3) ;             
-                                    /*            					     
-									 $.each(itemDataTemp,function(i,val) {
-                                         console.log ( i + val );
-                                       });
-                                     */
-                                 }) ; 
-                    		    // YOY - Ending              		              		
-                    	}  //  ***************************************							
-
-                      });               
-                  }
-                 });
-                });				
-			   return itemYear_arry2 ;
-            };  
-   
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Begin
    function step11(stockNo) {
