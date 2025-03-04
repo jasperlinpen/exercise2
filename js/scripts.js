@@ -14,14 +14,10 @@
 		  if (mask_item1.style.display == "none" )
 			  hiddenMsg1.style.display = "none" ; 
 		  if (!mask_item1.style.displayElementYN ) { 
-			  // console.log("NNN") ;
-			  //  mask_item1.classList.add('displayElementYN');
 				mask_item1.style.display = 'none';
-			  // console.log(mask_item1.style.display) ;
 			   }
             else 
 			{ 
-              // console.log(mask_item1.style.display) ;
 		    }
 		  getDATA();
           getWDATA();
@@ -163,7 +159,6 @@
                    } 
 				           	
                 $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:1102:STOCK&quote=1',function(data){
-                    // console.log('success');
                   $.each(data,function(key1,item1){
                      if (key1 === 'data') {
                    	//  $('ul').append('<li>'+item1+'</li>');
@@ -171,8 +166,7 @@
 					          span_rpt="<span class='span_rpt'>(<button onclick='showElement1(1102);'>M</button>)</span><span class='span_rpt'>(<button onclick='showElement2(1102);'>S</button>)</span>" ; 	          
                     $.each(itemData,function(key2,item2){
                     	if (key2  === 'quote' ) {
-                    		  var itemData2 = item2;
-                    		//  console.log(itemData2); 	
+                    		  var itemData2 = item2;	
                     		  $.each(itemData2,function(key3,item3){  
                              if (key3 === '200009') {
                  	           $("#span11").html(item3 + span_rpt); 
@@ -207,7 +201,6 @@
                         }) ;                 		
                     	}
                      });
-                   //  console.log(item1[0]);
                        if ($("#span14").html() >= $("#span12").html() - $("#span13").html())
                        {
                        	  $("#span14").addClass("highestPrice");
@@ -228,17 +221,14 @@
                      
               //  2nd stock section		  
                  $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:2324:STOCK&quote=1',function(data){
-                    // console.log('success');
                   $.each(data,function(key11,item11){
                      if (key11 === 'data') {
                      var itemData = item11 ;
-                    span_rpt="<span class='span_rpt'>(<button onclick='showElement1(2324);'>M</button>)</span><span class='span_rpt'>(<button onclick='showElement2(2324);'>S</button>)</span>" ; 	 
-                   	//  $('ul').append('<li>'+item1+'</li>');                   	
+                    span_rpt="<span class='span_rpt'>(<button onclick='showElement1(2324);'>M</button>)</span><span class='span_rpt'>(<button onclick='showElement2(2324);'>S</button>)</span>" ; 	               	
                     var itemData11 = item11; 	          
                     $.each(itemData11,function(key21,item21){
                     	if (key21  === 'quote' ) {
-                    		  var itemData21 = item21;
-                    		 // console.log(itemData21); 	
+                    		  var itemData21 = item21;	
                     		  $.each(itemData21,function(key31,item31){  
                              if (key31 === '200009') {
                  	              $("#span21").html(item31 + span_rpt); 
@@ -273,7 +263,6 @@
                         }) ;                 		
                     	}
                      });
-                   //  console.log(item1[0]);
                        if ($("#span24").html() >= $("#span22").html() - $("#span23").html())
                           {
                        	    $("#span24").addClass("highestPrice");
@@ -339,7 +328,6 @@
                         }) ;                 		
                     	}
                      });
-                   //  console.log(item1[0]);
                        if ($("#span34").html() >= $("#span32").html() - $("#span33").html())
                           {
                        	    $("#span34").addClass("highestPrice");
@@ -360,16 +348,13 @@
               //  Ending 3rd stock section 
               //  4th stock section   
                  $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?resolution=1&symbol=TWS:2330:STOCK&quote=1',function(data){
-                    // console.log('success');
                   $.each(data,function(key11,item11){
-                     if (key11 === 'data') {
-                   	//  $('ul').append('<li>'+item1+'</li>');                   	
+                     if (key11 === 'data') {                	
                     var itemData11 = item11; 
 					          span_rpt="<span class='span_rpt'>(<button onclick='showElement1(2330);'>M</button>)</span><span class='span_rpt'>(<button onclick='showElement2(2330);'>S</button>)</span>" ; 	 					
                     $.each(itemData11,function(key21,item21){
                     	if (key21  === 'quote' ) {
                     		  var itemData21 = item21;
-                    		 // console.log(itemData21); 	
                     		  $.each(itemData21,function(key31,item31){  
                              if (key31 === '200009') {
                  	              $("#tsmc1").html(item31 + span_rpt); 	
@@ -404,7 +389,6 @@
                         }) ;                 		
                     	}
                      });
-                   //  console.log(item1[0]);
                        if ($("#tsmc4").html() >= $("#tsmc2").html() - $("#tsmc3").html())
                           {
                        	    $("#tsmc4").addClass("highestPrice");
@@ -425,7 +409,6 @@
               //  Ending 4th stock section                            
               //  Weighed index  section   
                  $.getJSON('https://ws.api.cnyes.com/ws/api/v1/charting/history?symbol=TWS:TSE01:INDEX&resolution=D&quote=1&from=NaN&to=NaN',function(data){
-                    // console.log('success');
                   $.each(data,function(key11,item11){
                      if (key11 === 'data') {
                    	//  $('ul').append('<li>'+item1+'</li>');                   	
@@ -446,7 +429,6 @@
                     	
                     	if (key21  === 'quote' ) {
                     		  var itemData21 = item21;
-                    		 // console.log(itemData21); 	
                     		  $.each(itemData21,function(key31,item31){  
                              if (key31 === '200009') {
                              //		$("#wi-t").addClass("wi-t"); 
@@ -471,7 +453,6 @@
                         }) ;                 		
                     	}
                      });
-                   //  console.log(item1[0]);
                        if ($("#span24").html() >= $("#span22").html() - $("#span23").html())
                           {
                        	    $("#span24").addClass("highestPrice");
@@ -492,8 +473,7 @@
               //  Ending Weighed index section   
               //  Option selected index  section
 			 if (str_2 !="0") {
-				      ajaxURL=str_1 + str_2 + str_3 ;
-              //  console.log(ajaxURL);		 
+				      ajaxURL=str_1 + str_2 + str_3 ;	 
                  $.getJSON(ajaxURL,function(data){
                     // console.log('success');
                   $.each(data,function(key11,item11){
@@ -505,7 +485,6 @@
 					        $.each(itemData11,function(key21,item21){
                     	if (key21  === 'quote' ) {
                     		  var itemData21 = item21;
-                    		 // console.log(itemData21); 	
                     		  $.each(itemData21,function(key31,item31){  
                              if (key31 === '200009') {
                  	              $("#op11").html(item31 + span_rpt); 
@@ -540,7 +519,6 @@
                         }) ;                 		
                     	}
                      });
-                   //  console.log(item1[0]);
                        if ($("#op14").html() >= $("#op12").html() - $("#op13").html())
                           {
                        	    $("#op14").addClass("highestPrice");
@@ -730,7 +708,6 @@
                         }); 
                      };
                   });
-				console.log("AJAX request successfully completed.");
                 })
                 .fail(function(jqxhr, textStatus, error) {
                        $("#hiddenElement").html("<p>An error occurred while loading data.</p>");
@@ -743,11 +720,6 @@
 		  }
 
       function getYSMDATA() {
-               /*
-                if (firstVisit === false) {
-                   document.getElementById("s01").addEventListener("change", myFunction);   
-                } 
-               */   	
 			   
                 $.getJSON('https://marketinfo.api.cnyes.com/mi/api/v1/financialIndicator/revenue/TWS:2330:STOCK?resolution=Y&year=5&to=1561305600',function(data){
                   $.each(data,function(key1,item1){
@@ -807,11 +779,10 @@
                       });               
                   }
                  });
-                });	
-			   //  console.log( "Pass1:" + itemYear_arry2) ;				
+                });				
 			   return itemYear_arry2 ;
             };  
-	// **************************		   
+   
 
   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Begin
    function step11(stockNo) {
@@ -825,28 +796,18 @@
                 $.getJSON(urlStr,function(data){
                   $.each(data,function(key1,item1){
                      if (key1 === 'data') {
-                   	   //  $('ul').append('<li>'+item1+'</li>');
                         var itemData = item1[0]; 							
                         $.each(itemData,function(key2,item2){
 						        if (key2  === 'name' ) {
                              itemYear_stockname = item2 ;
-							               // console.log(itemYear_stockname);
                             }								
                     	   if (key2  === 'revenue' ) {
                             itemYear_arry2= item2 ;
                     		    var itemData2 = item2;
                     		    var itemDataTemp ;
-                    		   // YearRevenue - starting
                     		  $.each(itemData2,function(key3,item3){
-								          //  console.log(item3) ;             
-                          //   itemDataTemp = item3 ;
-                                    /*            					     
-									              $.each(itemDataTemp,function(i,val) {
-                                         console.log ( i + val );
-                                       });
-                                     */
+
                                  }) ; 
-                    		    // YearRevenue - Ending  
  		                         		              		
                     	}  //  ***************************************
                     	   if (key2  === 'revenueYOY' ) {
@@ -872,8 +833,6 @@
                   }
                  });
                 });		
-			// Step1 URL End
-           // console.log("Step 1 完成");
            resolve("Step 1 結果");
         }, 700);
        });
@@ -889,8 +848,6 @@
 				 item2currency = item2currency.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
 				 tr_line = tr_line + '<tr><td>' + timestampToTime(itemYear_arry1[i]) + '</td><td>' + item2currency + '</td><td>' +　itemYear_arry3[i]　+'</td></tr>' ;
 			 } ;
-            // console.log("Pass3:" + tr_line) ;
-           // console.log("Step 2 完成");
            resolve("Step 2 結果");
         }, 500);
       });
@@ -899,8 +856,7 @@
    function step13() {
         return new Promise((resolve) => {
         setTimeout(() => {						 
-		    show_YearRpt='<table width="30%" style="color: rgb(132, 141, 151); font-size: 14px; text-align: right;">' + '<thead><tr><td style="width:40%">[' + itemYear_stockname + ']月財報</td><td style="width:40%">營收(千元)</td><td style="width:20%">年增率</td></thead><tbody>' + tr_line  + '</tbody></table>'  ;
-         // console.log("Step 3 完成");
+		    show_YearRpt='<table width="33%" style="color: rgb(132, 141, 151); font-size: 14px; text-align: right;">' + '<thead><tr><td style="width:33%">[' + itemYear_stockname + ']月財報</td><td style="width:25%">營收(千元)</td><td style="width:33%">年增率</td></thead><tbody>' + tr_line  + '</tbody></table>'  ;
          resolve("Step 3 結果");
         }, 250);
     });
@@ -910,16 +866,15 @@
         return new Promise((resolve) => {
         setTimeout(() => {
             $("#hiddenElement1").html(show_YearRpt); 
-			  if (mask_item1.style.display == "none" )
-			   {
-				 hiddenMsg1.style.display = "none" ; 
-                 mask_item1.style.display = "block"  // Change display to block to make it visible
-               }
-			  else
-      		     mask_item1.style.display = "none" ;
+            if (mask_item1.style.display == "none" )
+            {
+            hiddenMsg1.style.display = "none" ; 
+                    mask_item1.style.display = "block"  // Change display to block to make it visible
+                  }
+            else
+                  mask_item1.style.display = "none" ;
 
-         // console.log("Step 4 完成");
-         resolve("Step 4 結果");
+            resolve("Step 4 結果");
         }, 10);
     });
    }
@@ -940,7 +895,6 @@
                     $.each(itemData,function(key2,item2){
                       if (key2  === 'name' ) {
                           itemYear_stockname = item2 ;
-                          console.log(itemYear_stockname);
                         }								
                       if (key2  === 'epsYOY' ) {
                         itemYear_arry2= item2 ;
@@ -948,13 +902,7 @@
                         var itemDataTemp ;
                        // YearRevenue - starting
                         $.each(itemData2,function(key3,item3){
-                            //  console.log(item3) ;             
-                            //   itemDataTemp = item3 ;
-                                /*            					     
-                        $.each(itemDataTemp,function(i,val) {
-                        console.log ( i + val );
-                        });
-                        */
+
                         }) ; 
                         // YearRevenue - Ending                                                  
                   }  //  ***************************************
@@ -965,12 +913,7 @@
                         var itemDataTemp ;
                        // YOY - starting
                       $.each(itemData2,function(key3,item3){
-                        // console.log(item3) ;             
-                        /*            					     
-                         $.each(itemDataTemp,function(i,val) {
-                                     console.log ( i + val );
-                                   });
-                                 */
+
                       }) ; 
                       // YOY - Ending              		              		
                   }  //  ***************************************						
@@ -982,7 +925,6 @@
              });
             });		
   // Step1 URL End
-       console.log("Step_1 完成");
        resolve("Step_1 結果");
     }, 700);
    });
@@ -994,21 +936,17 @@ function step22() {
     tr_line ="",show_SeasonRpt="" ;
     var item2currency=0;
     var espEarning_digit=0; 
+  //  var espYOY_arry = [...itemYear_arry2].reverse();
     var espDate_arry = [...itemYear_arry1].reverse();
     var espEarning_arry = [...itemYear_arry3].reverse(); 
     var accuEarning_arry = espEarning_arry ;
-    var text,subStr ;
+    var text,subStr,quarterDateStr,quarterDate_arry ;
     for (var i = 0; i < espDate_arry.length; i++) {
       espDate_arry[i]=timestampToTime(espDate_arry[i]) ;
       subStr =espDate_arry[i].substring(espDate_arry[i].indexOf("-")+1) ;
       // espEarning_digit=espEarning_arry[i];
       switch (subStr) {
         case "01": 
-          //  accuEarning_arry[i] = espEarning_arry[i] ;
-          /* 
-          accuEarning_arry[i] = parseFloat(espEarning_digit.toFixed(2));
-            console.log(espEarning_arry[i]);
-           */ 
             accuEarning_arry[i]= espEarning_arry[i] ;
             espEarning_digit=accuEarning_arry[i] ;
             accuEarning_arry[i]=parseFloat(espEarning_digit.toFixed(2)) ;
@@ -1018,11 +956,7 @@ function step22() {
             accuEarning_arry[i]=parseFloat(espEarning_digit.toFixed(2)) ;
             accuEarning_arry[i] += espEarning_arry[i-1] ;
             espEarning_digit= accuEarning_arry[i] ;
-            accuEarning_arry[i]= parseFloat(espEarning_digit.toFixed(2)) ;
-          /*
-            accuEarning_arry[i] = accuEarning_arry[i-1] + parseFloat(espEarning_digit.toFixed(2));
-            console.log(espEarning_arry[i]);
-          */  
+            accuEarning_arry[i]= parseFloat(espEarning_digit.toFixed(2)) ; 
             break;
         case "07": 
             espEarning_digit=accuEarning_arry[i] ;
@@ -1040,15 +974,28 @@ function step22() {
             break;      
 
       }     
-     // console.log(index);  
     } ; 
     accuEarning_arry.reverse() ;
-    for (let i = 0; i < itemYear_arry1.length; i++) {
-        item2currency = (itemYear_arry2[i]/1000) + "" ;
-        item2currency = item2currency.replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
-        tr_line = tr_line + '<tr><td>' + timestampToTime(itemYear_arry1[i]) + '</td><td>' + item2currency + '</td><td>' +　itemYear_arry3[i]　+'</td><td>' +　accuEarning_arry[i]　+'</td></tr>' ;
+    for (var i = 0; i < itemYear_arry1.length; i++) {
+        item2currency = itemYear_arry2[i]  ;
+        quarterDateStr=timestampToTime(itemYear_arry1[i]) ;
+        quarterDate_arry= quarterDateStr.split("-") ;
+        switch (quarterDate_arry[1]) {
+            case "01": 
+                quarterDate_arry[1]="Q1"
+                break;
+            case "04": 
+                quarterDate_arry[1]="Q2"
+                break;
+            case "07": 
+                quarterDate_arry[1]="Q3"
+                break;
+            case "10": 
+                quarterDate_arry[1]="Q4"
+                break;
+        }
+        tr_line = tr_line + '<tr><td><b>' +  quarterDate_arry[0] + quarterDate_arry[1] + '</b></td><td>' + item2currency + '</td><td>' +　itemYear_arry3[i]　+'</td><td>' +　accuEarning_arry[i]　+'</td></tr>' ;
    } ;
-        // console.log("Pass3:" + tr_line) ;
        console.log("Step_2 完成");
        resolve("Step_2 結果");
     }, 500);
@@ -1058,7 +1005,7 @@ function step22() {
 function step23() {
     return new Promise((resolve) => {
     setTimeout(() => {						 
-    show_SeasonRpt='<table width="30%" style="color: rgb(132, 141, 151); font-size: 14px; text-align: right;">' + '<thead><tr><td style="width:40%">[' + itemYear_stockname + ']季財報</td><td style="width:40%">epsYOY</td><td style="width:20%">EPS</td><td style="width:35%">累計EPS</td></thead><tbody>' + tr_line  + '</tbody></table>'  ;
+    show_SeasonRpt='<table width="30%" style="color: rgb(132, 141, 151); font-size: 14px; text-align: right;">' + '<thead><tr><td style="width:40%;color:yellow">[' + itemYear_stockname + ']季財報</td><td style="width:40%">epsYOY(%)</td><td style="width:20%">EPS</td><td style="width:35%">累計EPS</td></thead><tbody>' + tr_line  + '</tbody></table>'  ;
     console.log("Step_3 完成");
      resolve("Step_3 結果");
     }, 250);
@@ -1076,8 +1023,6 @@ function step24() {
            }
   else
            mask_item1.style.display = "none" ;
-
-     console.log("Step_4 完成");
      resolve("Step_4 結果");
     }, 10);
 });
@@ -1088,16 +1033,12 @@ function step24() {
    // ==========================
    step11()
       .then(result11 => {
-        console.log(result11); // Step 1 結果
         return step12();        // 等 step2 完成後才進行下一步
        })
       .then(result12 => {
-        console.log(result12);  // Step 2 結果
         return step13();        // 等 step3 完成後才進行下一步
        })
       .then(result13 => {
-        console.log(result13);  // Step 3 結果
-        console.log("所有步驟完成");
       })
       .catch(error => {
         console.log("出現錯誤: ", error);
@@ -1130,19 +1071,14 @@ function step24() {
     async function executeStepsSequentially2(stockNo) {
       try {
          let result21 = await step21(stockNo);
-       // console.log(result1); // Step 21 結果
 
          let result22 = await step22();
-       // console.log(result2); // Step 22 結果
+
 
          let result23 = await step23();
-       // console.log(result3); // Step 23 結果
        
          let result24 = await step24() ; 
 
-       // console.log(result4); // Step 24 結果 
-
-       // console.log("所有步驟完成");
       } catch (error) {
          console.log("出現錯誤: ", error);
      }
@@ -1154,43 +1090,17 @@ function step24() {
         var date = new Date(timestamp * 1000);
         var Y = date.getFullYear() + '-';
         var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) ;
-      /*
-        var D = date.getDate() + ' ';
-        var h = date.getHours() + ':';
-        var m = date.getMinutes() + ':';
-        var s = date.getSeconds();
-	  */	
-      //  return Y+M+D+h+m+s;
-	  	// console.log(Y) ;
+
 	    return Y+M ;
 
     }
 
 
-
-  
-    // **************************
 	  function showElement1(stockNo) {
 		 if  (mask_item1.style.display == "none" ) 
 			  executeStepsSequentially1(stockNo); 
          else
       		  mask_item1.style.display = "none" ;
-		 //	example();
-			// getYSMDATA2() ;
-			// ajj= getYSMDATA2() ;
-		    // console.log( "Pass2:" + itemYear_arry2) ;
-
-			
-			/*
-			while(intervalIds.length){
-                  clearInterval(intervalIds.pop());
-             }
-			*/ 
-
-			 
-        //  console.log(mask_item1.style.display) ;
-		//	console.log (element.style.display) ;
-
 	    }		 
 
 
@@ -1199,20 +1109,5 @@ function step24() {
            executeStepsSequentially2(stockNo); 
             else
                mask_item1.style.display = "none" ;
-        //	example();
-         // getYSMDATA2() ;
-         // ajj= getYSMDATA2() ;
-           // console.log( "Pass2:" + itemYear_arry2) ;
-   
-         
-         /*
-         while(intervalIds.length){
-                     clearInterval(intervalIds.pop());
-                }
-         */ 
-   
-          
-           //  console.log(mask_item1.style.display) ;
-       //	console.log (element.style.display) ;
    
          }		  
